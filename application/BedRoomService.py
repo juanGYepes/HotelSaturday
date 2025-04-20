@@ -1,5 +1,6 @@
 from domain.models.BedRoom import BedRoom
 
+
 class BedRoomService:
     register_data = []
 
@@ -13,7 +14,7 @@ class BedRoomService:
         bedroom.status = self.register_data[3]
 
 
-    def print_data_service(self, ):
+    def print_data_bedroom_service(self, ):
         for data in self.register_data:
             print(data)
 
