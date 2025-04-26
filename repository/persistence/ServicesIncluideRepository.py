@@ -1,8 +1,8 @@
-from domain.models.ServicesIncluide import ServiceIncluide
+from domain.models.MainServices import ServicesIncluide
 
 class ServicesIncluideRepository:
     def __init__(self):
-        self.servicesincluide = ServiceIncluide
+        self.servicesincluide = ServicesIncluide
 
     def create_service_include_repository(self,servicesincluide,db):
         query="INSERT INTO servicesincluide(reception, toilet,food,security,tecnology) VALUES(%s,%s,%s,%s,%s)"
