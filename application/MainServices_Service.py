@@ -1,6 +1,6 @@
 from domain.models.MainServices import MainServices
 
-class Mainserviceservice:
+class MainService_Service:
 
     register_data = []
 
