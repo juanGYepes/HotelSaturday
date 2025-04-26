@@ -6,7 +6,7 @@ from repository.conexion.Conexion import Conexion
 
 class Menu_App:
 
-    db = Conexion(host='localhost', port=3306, user='root', password="", database='hotel_saturday')
+    db = Conexion(host='localhost', port=3307, user='root', password="", database='hotel_saturday')
     db.connection()
 
     def __init__(self):
