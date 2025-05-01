@@ -9,15 +9,15 @@ class OptionalServicesInput:
         self.optionalservices_services = OptionalService_Service
 
     def register_optional_services(self, optionalservices ,db):
-        codeServiceOp = input("ingrese el codigo del servicio ")
+        codeServiceOp = input("ingrese el codigo del servicio: ")
         self.optionalservices.codeServiceOp
-        nameServiceOp = input("Ingrese el nombre del servicio ")
+        nameServiceOp = input("Ingrese el nombre del servicio: ")
         self.optionalservices.nameServiceOp
-        description = input("Ingrese descripcion del servicio ")
+        description = input("Ingrese descripcion del servicio: ")
         self.optionalservices.description
-        price = int(input("digite el costo del servicio "))
+        price = int(input("digite el costo del servicio: "))
         self.optionalservices.price
-        status = input("ingrese el estado del servicio")
+        status = input("ingrese el estado del servicio: ")
         self.optionalservices.status
 
         self.optionalservicesrepository.create_optional_services_repository(self.optionalservices,db)
