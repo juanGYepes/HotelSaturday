@@ -2,13 +2,13 @@ from domain.models.OptionalServices import OptionalServices
 from repository.persistence.OptionalServicesRepository import OptionalServicesRepository
 from application.OptionalServices_Service import OptionalService_Service
 
-class MainServicesInput:
+class OptionalServicesInput:
     def __init__(self):
         self.optionalservices=OptionalServices(None,None,None,None,None)
         self.optionalservicesrepository = OptionalServicesRepository
         self.optionalservices_services = OptionalService_Service
 
-    def register_main_services(self, mainservices ,db):
+    def register_optional_services(self, optionalservices ,db):
         codeServiceOp = input("ingrese el codigo del servicio ")
         self.optionalservices.codeServiceOp
         nameServiceOp = input("Ingrese el nombre del servicio ")
