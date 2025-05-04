@@ -39,10 +39,10 @@ class BookingInput:
             room_id = int(input("ID habitación: "))
             main_id = int(input("ID servicio principal: "))
             opt_id = int(input("ID servicio opcional (0 = ninguno): "))
-
         except ValueError:
             print("Error: Todos los IDs deben ser números.")
             return
+
 
         self.booking.id_booking = id_
         self.booking.booking_date = booking_date
