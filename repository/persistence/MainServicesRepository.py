@@ -8,4 +8,3 @@ class MainServicesRepository:
         query="INSERT INTO mainservices(codeService, nameService,description,price,status) VALUES(%s,%s,%s,%s,%s)"
         values = (mainservices.codeService,mainservices.nameService,mainservices.description,mainservices.price,mainservices.status)
         db.execute_query(query , values)
-        print("")
