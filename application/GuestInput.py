@@ -1,40 +1,40 @@
-
-from application.GuestService import GuestService
-from domain.models.Guest import  Guest
+from domain.models.Guest import Guest
 from repository.persistence.GuestRepository import GuestRepository
 
 class GuestInput:
-
-
     def __init__(self):
-        self.guest = Guest(None,None,None,None ,None,None, None,None,None )
+        self.guest = Guest(None, None, None, None, None, None, None, None, None)
         self.guest_repository = GuestRepository()
 
+    def register(self, db):
+        try:
+            id_ = int(input("Documento (ID): "))
+        except ValueError:
+            print("Error: El documento debe ser un número.")
+            return
 
-    def register(self, guest , db):
-        id = int(input("Ingrese su documento de identidad"))
-        self.guest.id = id
-        name = input("Ingrese su nombre")
+        name = input("Nombre: ").strip()
+        last_name = input("Apellido: ").strip()
+        phone = input("Teléfono: ").strip()
+        email = input("Email: ").strip()
+        password = input("Contraseña: ").strip()
+        status = input("Estado (activo/inactivo): ").strip()
+        origin = input("Ciudad de origen: ").strip()
+        occupation = input("Ocupación: ").strip()
+
+        # Campos obligatorios
+        if not all([name, last_name, phone, email, password, status, origin, occupation]):
+            print("Error: Todos los campos son obligatorios.")
+            return
+
+        self.guest.id = id_
         self.guest.name = name
-        last_name = input("Ingrese su apellido")
         self.guest.last_name = last_name
-        phone = input("Ingrese su teléfono")
         self.guest.phone = phone
-        email = input("Ingrese su correo")
         self.guest.email = email
-        password = input("Ingrese su contraseña")
         self.guest.password = password
-        status = input("Seleccione el estado")
         self.guest.status = status
-        origin = input("Ingrese su ciudad de origen")
         self.guest.origin = origin
-        occupation = input("Ingrese su ocupacion")
         self.guest.occupation = occupation
+
         self.guest_repository.create_guest_repository(self.guest, db)
-
-
-
-    def print_data(self):
-        self.guest_service.print_data_service()
-
-
