@@ -4,12 +4,11 @@ from domain.models.Guest import Guest
 from domain.models.BedRoom import BedRoom
 from domain.models.MainServices import MainServices
 from domain.models.OptionalServices import OptionalServices
-from domain.models.Employee import Employee
 from repository.persistence.BookingRepository import BookingRepository
 
 class BookingInput:
     def __init__(self):
-        self.booking = Booking(None, None, None, None, None, None, None, None)
+        self.booking = Booking(None, None, None, None, None, None, None)
         self.booking_repository = BookingRepository()
 
     def create_booking(self, db):
@@ -37,10 +36,10 @@ class BookingInput:
         # IDs referenciales
         try:
             guest_id = int(input("ID huésped: "))
-            bedroom_id = int(input("ID habitación: "))
+            room_id = int(input("ID habitación: "))
             main_id = int(input("ID servicio principal: "))
             opt_id = int(input("ID servicio opcional (0 = ninguno): "))
-            emp_id = int(input("ID empleado reserva: "))
+
         except ValueError:
             print("Error: Todos los IDs deben ser números.")
             return
@@ -49,9 +48,9 @@ class BookingInput:
         self.booking.booking_date = booking_date
         self.booking.checkout_date = checkout_date
         self.booking.guest = Guest(guest_id, None, None, None, None, None, None, None, None)
-        self.booking.bedroom = BedRoom(bedroom_id, None, None, None)
+        self.booking.bedroom = BedRoom(room_id, None, None, None)
         self.booking.main_service = MainServices(main_id, None, None, None, None)
         self.booking.optional_service = OptionalServices(opt_id or None, None, None, None, None)
-        self.booking.employee = Employee(emp_id, None, None, None, None, None, None, None)
+
 
         self.booking_repository.create_booking_repository(self.booking, db)
