@@ -1,6 +1,5 @@
 class OptionalServices:
-
-    def __init__(self, codeServiceOp, nameServiceOp,description,price,status):
+    def __init__(self, codeServiceOp, nameServiceOp, description, price, status):
         self._codeServiceOp = codeServiceOp
         self._nameServiceOp = nameServiceOp
         self._description = description
@@ -12,7 +11,7 @@ class OptionalServices:
         return self._codeServiceOp
 
     @codeServiceOp.setter
-    def codeServiceOp(self,codeServiceOp):
+    def codeServiceOp(self, codeServiceOp):
         self._codeServiceOp = codeServiceOp
 
     @property
@@ -28,14 +27,15 @@ class OptionalServices:
         return self._description
 
     @description.setter
-    def food(self, description):
-        self.description = description
+    def description(self, description):
+        self._description = description
 
     @property
     def price(self):
         return self._price
+
     @price.setter
-    def security(self,price):
+    def price(self, price):
         self._price = price
 
     @property
@@ -43,5 +43,5 @@ class OptionalServices:
         return self._status
 
     @status.setter
-    def status(self,status):
+    def status(self, status):
         self._status = status
