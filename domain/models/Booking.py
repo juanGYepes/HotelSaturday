@@ -12,7 +12,7 @@ class Booking:
         self._booking_date = booking_date
         self._checkout_date = checkout_date
 
-    @Property
+    @property
     def id_booking(self):
         return self._id_booking
 
@@ -20,7 +20,7 @@ class Booking:
     def id_booking(self, id_booking):
         self._id_booking = id_booking
 
-    @Property
+    @property
     def booking_date(self):
         return self._booking_date
 
@@ -28,7 +28,7 @@ class Booking:
     def booking_date(self, booking_date):
         self._booking_date = booking_date
 
-    @Property
+    @property
     def checkout_date(self):
         return self._checkout_date
 

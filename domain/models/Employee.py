@@ -1,11 +1,8 @@
 from domain.models.User import User
 
-
 class Employee(User):
-
-    def _init_(self, id, name, last_name, phone, email, password, status, rol):
+    def __init__(self, id, name, last_name, phone, email, password, status, rol):
         super().__init__(id, name, last_name, phone, email, password, status)
-
         self._rol = rol
 
     @property
@@ -16,6 +13,8 @@ class Employee(User):
     def rol(self, rol):
         self._rol = rol
 
-    #Metodo string
     def __str__(self):
-        return f"rol{self._rol}"
+        return (
+            f"Empleado: {self.name} {self.last_name} | ID: {self.id} | "
+            f"Rol: {self.rol} | Tel: {self.phone} | Email: {self.email} | Estado: {self.status}"
+        )
