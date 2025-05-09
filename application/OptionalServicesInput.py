@@ -15,7 +15,7 @@ class OptionalServicesInput:
         except ValueError:
             print("Error: Precio numérico.")
             return
-        status = input("Estado: ").strip()
+        status = input("Estado(activo/inactivo): ").strip()
 
         if not all([code, name, desc, status]):
             print("Error: Todos los campos son obligatorios.")
