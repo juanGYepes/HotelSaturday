@@ -7,8 +7,8 @@ class OptionalServicesInput:
         self.repo = OptionalServicesRepository()
 
     def register(self, db):
-        code = input("Código opcional: ").strip()
-        name = input("Nombre opcional: ").strip()
+        code = input("Código de servicio opcional: ").strip()
+        name = input("Nombre de servicio opcional: ").strip()
         desc = input("Descripción: ").strip()
         try:
             price = float(input("Precio: "))
