@@ -1,7 +1,6 @@
 class MainServices:
-
-    def __init__(self, codeService, nameService,description,price,status):
-        self._codService = codeService
+    def __init__(self, codeService, nameService, description, price, status):
+        self._codeService = codeService
         self._nameService = nameService
         self._description = description
         self._price = price
@@ -12,7 +11,7 @@ class MainServices:
         return self._codeService
 
     @codeService.setter
-    def reception(self,codeService):
+    def codeService(self, codeService):
         self._codeService = codeService
 
     @property
@@ -20,7 +19,7 @@ class MainServices:
         return self._nameService
 
     @nameService.setter
-    def toilet(self, nameService):
+    def nameService(self, nameService):
         self._nameService = nameService
 
     @property
@@ -28,14 +27,15 @@ class MainServices:
         return self._description
 
     @description.setter
-    def food(self, description):
-        self.description = description
+    def description(self, description):
+        self._description = description
 
     @property
     def price(self):
         return self._price
+
     @price.setter
-    def security(self,price):
+    def price(self, price):
         self._price = price
 
     @property
@@ -43,6 +43,6 @@ class MainServices:
         return self._status
 
     @status.setter
-    def status(self,status):
+    def status(self, status):
         self._status = status
 
