@@ -1,5 +1,6 @@
 import re
 from domain.models.Guest import Guest
+from repository.conexion.Conexion import Conexion
 
 class GuestRepository:
 
@@ -39,3 +40,30 @@ class GuestRepository:
             guest.occupation
         )
         db.execute_query(query, values)
+
+    #Metodo de obtener los datos
+    @staticmethod
+    def obtener_todas():
+        # Parámetros de conexión
+        conexion = Conexion(
+            host='localhost',
+            port=3307,
+            user='root',
+            password='',
+            database='hotel_saturday'
+        ).connection()
+
+        if not conexion:
+            return []
+
+        cursor = conexion.cursor()
+
+        cursor.execute("""
+                SELECT id, name, last_name, phone, email, password, status, origin, occupation
+                FROM guest
+            """)
+        resultados = cursor.fetchall()
+
+        cursor.close()
+        conexion.close()
+        return resultados

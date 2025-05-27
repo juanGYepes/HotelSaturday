@@ -1,0 +1,5 @@
+id,name,last_name,phone,email,password,status,origin,occupation
+1001370525,Valentina,Aguirre,3045678765,valen@gmail.com,1234567,Activo,Medellin,Dev
+1022143318,Juan,Palacio,3122456788,juan@gmail.com,1234567,Activo,Caldas,Dev
+1027605643,Camilo,Atehortua,3123335677,camilo@gmail.com,1234567,Activo,Medellin,Dev
+1037073495,Juan,Yepes,3044601124,jucagomezye@cesde.net,1234567,activo,medellin,Dev

@@ -1,0 +1,3 @@
+id_booking,booking_date,checkout_date,guest_id,bedroom_id,main_service_id, optional_service_id
+1001,2025-05-25,2025-05-30,1037073495,101,101,101
+1002,2025-05-25,2025-05-27,1001370525,102,101,102
