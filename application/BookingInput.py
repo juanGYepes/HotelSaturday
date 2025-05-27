@@ -4,16 +4,26 @@ from domain.models.Guest import Guest
 from domain.models.BedRoom import BedRoom
 from domain.models.MainServices import MainServices
 from domain.models.OptionalServices import OptionalServices
+#Exportar
 from repository.persistence.BookingRepository import BookingRepository
+from application.ExportUtils import exportar_a_csv
 
 class BookingInput:
     def __init__(self):
         self.booking = Booking(None, None, None, None, None, None, None)
         self.booking_repository = BookingRepository()
 
+    # Metodo para exportar, obtener datos en GuestRepository
+    def exportar_Booking_csv(self):
+        datos = BookingRepository.obtener_todas()
+        columnas = ["id_booking", "booking_date", "checkout_date", "guest_id", "bedroom_id", "main_service_id"," optional_service_id"]
+
+        exportar_a_csv("Booking.csv", columnas, datos)
+
+
     def create_booking(self, db):
         try:
-            id_ = int(input("ID reserva: "))
+            id_booking = int(input("ID reserva: "))
         except ValueError:
             print("Error: El ID debe ser un número.")
             return
@@ -44,7 +54,7 @@ class BookingInput:
             return
 
 
-        self.booking.id_booking = id_
+        self.booking.id_booking = id_booking
         self.booking.booking_date = booking_date
         self.booking.checkout_date = checkout_date
         self.booking.guest = Guest(guest_id, None, None, None, None, None, None, None, None)
@@ -53,4 +63,4 @@ class BookingInput:
         self.booking.optional_service = OptionalServices(opt_id or None, None, None, None, None)
 
 
-        self.booking_repository.create_booking_repository(self.booking, db)
+        self.booking_repository.create_booking_repository(self.booking,db)

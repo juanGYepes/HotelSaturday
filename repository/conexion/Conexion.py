@@ -1,9 +1,6 @@
 import mysql
 from mysql import connector
 
-
-
-
 class Conexion:
 
     def __init__(self, host, port, user, password , database):
@@ -16,7 +13,7 @@ class Conexion:
 
     def connection(self):
         try:
-            self.conn = mysql.connector.connect(  # ⚠️ CAMBIO
+            self.conn = mysql.connector.connect(  # ⚠ CAMBIO
                 host = self.host,
                 port = self.port,
                 user = self.user,
@@ -24,8 +21,11 @@ class Conexion:
                 database = self.database
             )
             print("✅ Conexión Establecida")
+            #CAMBIO
+            return self.conn  # ✅ Retorna la conexión
         except mysql.connector.Error as err:
             print("❌ Error al conectar a la base de datos:", err)
+            return None
 
     def disconnect(self):
         if self.conn:
@@ -34,7 +34,7 @@ class Conexion:
 
     def execute_query(self, query , params=None):
         if not self.conn:
-            print("⚠️ No hay conexión activa.")
+            print("⚠ No hay conexión activa.")
             return None
         cursor = self.conn.cursor(buffered=True)
         try:
@@ -46,4 +46,4 @@ class Conexion:
         except mysql.connector.Error as err:
             print("🚨 Error al ejecutar la consulta:", err)
         finally:
-            cursor.close()
+          cursor.close()

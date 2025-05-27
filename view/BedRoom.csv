@@ -1,0 +1,7 @@
+roomId,number, roomType, status
+101,1,sencilla,disponible
+102,2,Premium,disponible
+103,3,Sencilla,Disponible
+104,4,Doble,Disponible
+105,5,Suite,Ocupada
+106,6,Sencilla,Disponible

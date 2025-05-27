@@ -1,10 +1,18 @@
 from domain.models.Guest import Guest
 from repository.persistence.GuestRepository import GuestRepository
-
+#metodo para exportar
+from application.ExportUtils import exportar_a_csv
 class GuestInput:
     def __init__(self):
         self.guest = Guest(None, None, None, None, None, None, None, None, None)
         self.guest_repository = GuestRepository()
+
+    # Metodo para exportar, obtener datos en GuestRepository
+    def exportar_Guest_csv(self):
+        datos = GuestRepository.obtener_todas()
+        columnas = ["id", "name", "last_name", "phone", "email", "password", "status", "origin", "occupation"]
+
+        exportar_a_csv("Guest.csv", columnas, datos)
 
     def register(self, db):
         try:
@@ -27,6 +35,8 @@ class GuestInput:
             print("Error: Todos los campos son obligatorios.")
             return
 
+
+
         self.guest.id = id_
         self.guest.name = name
         self.guest.last_name = last_name
@@ -37,4 +47,4 @@ class GuestInput:
         self.guest.origin = origin
         self.guest.occupation = occupation
 
-        self.guest_repository.create_guest_repository(self.guest, db)
+        self.guest_repository.create_guest_repository(self.guest,db)

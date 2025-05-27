@@ -24,6 +24,7 @@ class Menu_App:
                 print("3. Registrar Servicio Principal")
                 print("4. Registrar Servicio Opcional")
                 print("5. Registrar Reserva")
+                print("6. Exportar a CSV")
                 print("0. Salir")
                 opc = int(input("Seleccione: "))
             except ValueError:
@@ -40,9 +41,44 @@ class Menu_App:
                 self.opt_input.register(self.db)
             elif opc == 5:
                 self.booking_input.create_booking(self.db)
+            elif opc == 6:
+                self.exportar_csv()
             elif opc == 0:
                 print("¡Hasta luego!")
                 self.db.disconnect()
+                break
+            else:
+                print("Opción no válida.")
+
+
+
+#  Submenú para exportar a CSV
+    def exportar_csv(self):
+        while True:
+            print("\n--- Exportar a CSV ---")
+            print("1. Exportar Huéspedes")
+            print("2. Exportar Habitaciones")
+            print("3. Exportar Reservas")
+            print("4. Exportar Servicios Principales")
+            print("5. Exportar Servicios Opcionales")
+            print("0. Volver al menú principal")
+            try:
+                sub_opc = int(input("Seleccione una opción: "))
+            except ValueError:
+                print("Error: ingrese un número válido.")
+                continue
+
+            if sub_opc == 1:
+                self.guest_input.exportar_Guest_csv()
+            elif sub_opc == 2:
+                self.bedroom_input.exportar_BedRoom_csv()
+            elif sub_opc == 3:
+                self.booking_input.exportar_Booking_csv()
+            elif sub_opc == 4:
+                self.main_input.exportar_MainServices_csv()
+            elif sub_opc == 5:
+                self.opt_input.exportar_OptionalServices_csv()
+            elif sub_opc == 0:
                 break
             else:
                 print("Opción no válida.")

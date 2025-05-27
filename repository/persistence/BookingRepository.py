@@ -1,4 +1,5 @@
 from domain.models.Booking import Booking
+from repository.conexion.Conexion import Conexion
 
 class BookingRepository:
 
@@ -31,3 +32,30 @@ class BookingRepository:
         )
 
         db.execute_query(query, values)
+
+    # Metodo de obtener los datos
+    @staticmethod
+    def obtener_todas():
+        # Parámetros de conexión
+        conexion = Conexion(
+            host='localhost',
+            port=3307,
+            user='root',
+            password='',
+            database='hotel_saturday'
+        ).connection()
+
+        if not conexion:
+            return []
+
+        cursor = conexion.cursor()
+
+        cursor.execute("""
+                SELECT id_booking, booking_date, checkout_date, guest_id, bedroom_id, main_service_id, optional_service_id
+                FROM booking
+            """)
+        resultados = cursor.fetchall()
+
+        cursor.close()
+        conexion.close()
+        return resultados
